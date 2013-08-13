@@ -24,7 +24,7 @@ Tree reparse(TString t, loc org) {
         docs[prev] = intercalate(".", path);
         append appl(prod(lex("Model"), [], {\tag("category"("MetaVariable"))}), 
            [char(c) | c <- chars(s)])
-             [@link=l][@\loc=prev];
+             [@links={l, mLoc}][@\loc=prev];
       }
     }
   }
