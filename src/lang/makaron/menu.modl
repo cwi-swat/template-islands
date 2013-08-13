@@ -1,0 +1,14 @@
+
+model m
+
+{name: "Menu",
+  hasKids: true,
+  kids: [
+     {name: "Home", hasKids: true, kids: [ 
+       {name: "Bla", hasKids: false}]},
+     {name: "Contact", hasKids: false},
+     {name: "About", hasKids: false}
+   ]
+ }
+
+ 
