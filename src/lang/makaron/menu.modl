@@ -1,12 +1,12 @@
 
 model m
 
-{name: "Menu",
+{name: "Menu is really the menu",
   hasKids: true,
   kids: [
      {name: "Home", hasKids: true, kids: [ 
        {name: "Bla", hasKids: false}]},
-     {name: "Contact", hasKids: false},
+     {name: "Contact is leuk", hasKids: false},
      {name: "About", hasKids: false}
    ]
  }

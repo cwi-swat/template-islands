@@ -1,16 +1,16 @@
 
 
-   <ul class="menu"> 
+   <ul class="menu" id="someid"> 
    
-     <li><p>Menu "Menu"</p></li>
+     <li><p>Menu "Menu is really the menu"</p></li>
      
        
-   <ul class="menu"> 
+   <ul class="menu" id="someid"> 
    
      <li><p>Menu "Home"</p></li>
      
        
-   <ul class="menu"> 
+   <ul class="menu" id="someid"> 
    
    <li><a href="Bla">Bla</a></li> 
   
@@ -19,14 +19,14 @@
   </ul>
 
        
-   <ul class="menu"> 
+   <ul class="menu" id="someid"> 
    
-   <li><a href="Contact">Contact</a></li> 
+   <li><a href="Contact is leuk">Contact is leuk</a></li> 
   
   </ul>
 
        
-   <ul class="menu"> 
+   <ul class="menu" id="someid"> 
    
    <li><a href="About">About</a></li> 
   

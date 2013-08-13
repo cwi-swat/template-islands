@@ -6,11 +6,13 @@ import lang::makaron::Template;
 import lang::makaron::EvalFuncOrg;
 import lang::makaron::Reparse;
 import lang::makaron::ModelIDE;
+import lang::makaron::ParseTemplate;
+import lang::makaron::State;
 import IO;
 
 
 TString runExample(loc template, loc model) {
-  tree = parse(#Text, template);
+  tree = parseTemplate(template);
   mSrc = readFile(model);
   pt = parseModel(mSrc, model).top;
   m = implodeModel(pt);
@@ -18,9 +20,10 @@ TString runExample(loc template, loc model) {
   return gen;
 }
 
-void setup() {
-  map[loc, TString] table = ();
 
+void setup() {
+  table = (); // global
+  
   registerLanguage("Makaron", "mak", Tree(str src, loc org) {
     return parse(#Text, src, org);
   });
@@ -39,7 +42,7 @@ void setup() {
       writeFile(outfile, yield(gen));
       println("Storing generated file in <outfile>");
       println("");
-      table[outfile] = gen;
+      table[outfile.path] = gen;
       return {};   
     })
   });
@@ -48,9 +51,8 @@ void setup() {
 
   registerLanguage("Generated", "generated", Tree(str src, loc org) {
     println("ORG = <org>");
-    println("");
-    if (k <- table, k.path == org.path) {
-      return reparse(table[k], org);
+    if (org.path in table) {
+      return reparse(table[org.path], org);
     }
     return appl(prod(sort("ERROR"), [], {}), []);   
   });
